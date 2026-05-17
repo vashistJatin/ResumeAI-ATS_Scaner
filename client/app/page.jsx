@@ -40,7 +40,7 @@ export default function Home() {
     formData.append("jobDescription", jd);
     try {
       const { data } = await axios.post(
-        "https://resumeai-ats-scaner.onrender.com",
+        "https://resumeai-ats-scaner.onrender.com/api/analyze",
         formData,
       );
       sessionStorage.setItem("result", JSON.stringify(data));

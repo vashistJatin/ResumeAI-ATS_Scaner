@@ -1,5 +1,8 @@
 const express = require("express");
-const cors = require("cors");
+app.use(cors({
+  origin: ["https://resume-ai-ats-scaner.vercel.app/", "http://localhost:3000"],
+  methods: ["GET", "POST"],
+}));
 require("dotenv").config();
 
 const analyzeRoute = require("./routes/analyze");
