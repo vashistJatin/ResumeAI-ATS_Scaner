@@ -39,7 +39,10 @@ export default function Home() {
     formData.append("resume", resume);
     formData.append("jobDescription", jd);
     try {
-      const { data } = await axios.post("http://localhost:5000/api/analyze", formData);
+      const { data } = await axios.post(
+        "https://resumeai-ats-scaner.onrender.com",
+        formData,
+      );
       sessionStorage.setItem("result", JSON.stringify(data));
       router.push("/results");
     } catch {
