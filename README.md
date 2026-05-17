@@ -3,7 +3,7 @@
 An AI-powered full-stack web application that analyzes resumes against job descriptions and returns an ATS match score with detailed feedback.
 
 ## Live Demo
-[Add your Vercel link here]
+[(https://resume-ai-ats-scaner.vercel.app/)]
 
 ## Features
 - Upload resume as PDF
@@ -16,7 +16,7 @@ An AI-powered full-stack web application that analyzes resumes against job descr
 ## Tech Stack
 **Frontend:** Next.js, React.js, Tailwind CSS  
 **Backend:** Node.js, Express.js  
-**AI:** Google Gemini 1.5 Flash API  
+**AI:** Google Gemini 2.5 Flash API  
 **PDF Parsing:** pdf-parse  
 **Deployment:** Vercel (frontend), Render (backend)
 
@@ -24,7 +24,7 @@ An AI-powered full-stack web application that analyzes resumes against job descr
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/ai-resume-screener.git
+git clone https://github.com/vashistJatin/ResumeAI-ATS_Scaner/tree/main
 cd ai-resume-screener
 ```
 
