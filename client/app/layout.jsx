@@ -1,6 +1,9 @@
+import "./globals.css";
+
 export const metadata = {
   title: "ResumeAI — ATS Resume Screener",
-  description: "Analyze your resume against any job description and get an instant ATS score.",
+  description:
+    "Analyze your resume against any job description and get an instant ATS score.",
 };
 
 export default function RootLayout({ children }) {

@@ -132,7 +132,16 @@ export default function Home() {
           0%, 100% { transform: translate(0,0); }
           50% { transform: translate(20px, -30px); }
         }
-
+          @keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.2); }
+  56% { transform: scale(1); }
+}
+@media (max-width: 600px) {
+  footer { padding: 16px 20px !important; flex-direction: column; align-items: center; text-align: center; }
+}
         /* Page */
         .page {
           position: relative;
@@ -507,21 +516,26 @@ export default function Home() {
 
       {/* Nav */}
       <nav className="nav">
-        <div className="nav-logo">Resume<span>AI</span></div>
+        <div className="nav-logo">
+          Resume<span>AI</span>
+        </div>
         <div className="nav-badge">Powered by Gemini</div>
       </nav>
 
       <main className="page">
         {/* Hero */}
         <div className="hero">
-          <div className="hero-eyebrow animate-in">AI-Powered ATS Screening</div>
+          <div className="hero-eyebrow animate-in">
+            AI-Powered ATS Screening
+          </div>
           <h1 className="animate-in">
-            Know exactly why<br />
+            Know exactly why
+            <br />
             you're getting <span className="grad">rejected</span>
           </h1>
           <p className="animate-in">
-            Upload your resume, paste any job description — get an instant ATS score,
-            missing keywords, and actionable improvements in seconds.
+            Upload your resume, paste any job description — get an instant ATS
+            score, missing keywords, and actionable improvements in seconds.
           </p>
           <div className="stats animate-in">
             <div className="stat">
@@ -543,12 +557,14 @@ export default function Home() {
 
         {/* Card */}
         <div className="card animate-in" ref={formRef}>
-
           {/* Upload */}
           <div className="field-label">Step 1 — Upload Resume</div>
           <div
             className={`upload-zone ${dragOver ? "drag" : ""} ${resume ? "has-file" : ""}`}
-            onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+            onDragOver={(e) => {
+              e.preventDefault();
+              setDragOver(true);
+            }}
             onDragLeave={() => setDragOver(false)}
             onDrop={handleDrop}
             onClick={() => document.getElementById("fileInput").click()}
@@ -560,14 +576,14 @@ export default function Home() {
               style={{ display: "none" }}
               onChange={(e) => setResume(e.target.files[0])}
             />
-            <div className="upload-icon">
-              {resume ? "✅" : "📄"}
-            </div>
+            <div className="upload-icon">{resume ? "✅" : "📄"}</div>
             {resume ? (
               <>
                 <div className="upload-title">Resume Uploaded</div>
                 <div className="upload-filename">{resume.name}</div>
-                <div className="upload-sub" style={{ marginTop: 6 }}>Click to change file</div>
+                <div className="upload-sub" style={{ marginTop: 6 }}>
+                  Click to change file
+                </div>
               </>
             ) : (
               <>
@@ -596,7 +612,10 @@ export default function Home() {
             disabled={loading}
           >
             {loading ? (
-              <><span className="spinner" />Analyzing your resume...</>
+              <>
+                <span className="spinner" />
+                Analyzing your resume...
+              </>
             ) : (
               "Analyze My Resume →"
             )}
@@ -604,12 +623,143 @@ export default function Home() {
 
           {/* Features */}
           <div className="features">
-            <div className="feature-item"><span>🔒</span><span>Private — not stored</span></div>
-            <div className="feature-item"><span>⚡</span><span>Instant results</span></div>
-            <div className="feature-item"><span>🎯</span><span>ATS keyword match</span></div>
+            <div className="feature-item">
+              <span>🔒</span>
+              <span>Private — not stored</span>
+            </div>
+            <div className="feature-item">
+              <span>⚡</span>
+              <span>Instant results</span>
+            </div>
+            <div className="feature-item">
+              <span>🎯</span>
+              <span>ATS keyword match</span>
+            </div>
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer
+        style={{
+          position: "relative",
+          zIndex: 2,
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          padding: "20px 40px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "12px",
+          background: "rgba(8,8,16,0.8)",
+          backdropFilter: "blur(12px)",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "-1px",
+            left: "15%",
+            right: "15%",
+            height: "1px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(108,99,255,0.5), transparent)",
+          }}
+        />
+
+        <span
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "13px",
+            color: "#5A5A7A",
+            fontWeight: 300,
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+          }}
+        >
+          Made with{" "}
+          <span
+            style={{
+              animation: "heartbeat 1.4s ease-in-out infinite",
+              display: "inline-block",
+            }}
+          >
+            💜
+          </span>{" "}
+          by
+          <a
+            href="https://github.com/vashistJatin"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#6C63FF",
+              fontFamily: "'Syne', sans-serif",
+              fontWeight: 700,
+              fontSize: "13px",
+              textDecoration: "none",
+            }}
+          >
+            Jatin Sharma
+          </a>
+        </span>
+
+        <div style={{ display: "flex", gap: "20px" }}>
+          {[
+            { label: "GitHub", href: "https://github.com/vashistJatin" },
+            {
+              label: "LinkedIn",
+              href: "https://linkedin.com/in/jatin-sharma-8874162b2",
+            },
+            { label: "Email", href: "mailto:jatin8966@gmail.com" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                color: "#5A5A7A",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#6C63FF")}
+              onMouseLeave={(e) => (e.target.style.color = "#5A5A7A")}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <span
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: "10px",
+            color: "#5A5A7A",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+          }}
+        >
+          <span
+            style={{
+              width: 6,
+              height: 6,
+              background: "#43D9A2",
+              borderRadius: "50%",
+              display: "inline-block",
+              animation: "pulse 2s infinite",
+              boxShadow: "0 0 6px #43D9A2",
+            }}
+          />
+          Next.js · Gemini AI
+        </span>
+      </footer>
     </>
   );
 }
+
